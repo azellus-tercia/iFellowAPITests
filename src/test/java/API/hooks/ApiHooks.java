@@ -6,12 +6,7 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeAll;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 import static utils.Configuration.getConfigurationValue;
 
@@ -48,13 +43,5 @@ public abstract class ApiHooks {
                  .addFilter(new RequestLoggingFilter())
                  .addFilter(new ResponseLoggingFilter())
                  .build();
-    }
-
-    public JSONObject getJSONObject(String fileName) {
-        try {
-            return new JSONObject(new String(Files.readAllBytes(Paths.get("src/test/resources/requests/" + fileName))));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

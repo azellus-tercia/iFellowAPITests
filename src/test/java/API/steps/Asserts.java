@@ -1,10 +1,10 @@
-package API.utils;
+package API.steps;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 
-public final class Asserts {
+public final class Asserts extends BaseTestSteps {
     @Step("Проверить, что оба персонажа одной расы")
     public static void checkSpeciesAreEqual(String firstCharacter, String secondCharacter) {
         Assertions.assertEquals(firstCharacter, secondCharacter, "Эти персонажи имеют разную расу.");
@@ -27,11 +27,11 @@ public final class Asserts {
 
     @Step("Проверить, что в ответе поле {jsonField} содержит запись {expected}")
     public static void checkJsonFieldIsEquals(Response response, String expected, String jsonField) {
-        Assertions.assertEquals(expected, response.jsonPath().get(jsonField), "Поле '" + jsonField + "' не равно '" + expected + "'.");
+        Assertions.assertEquals(expected, getJsonPath(response, jsonField), "Поле '" + jsonField + "' не равно '" + expected + "'.");
     }
 
     @Step("Проверить, что в ответе поле {jsonField} содержит не пустую запись")
     public static void checkJsonFieldIsNotEmpty(Response response, String unexpected, String jsonField) {
-        Assertions.assertNotEquals(unexpected, response.jsonPath().get(jsonField), "Поле '" + jsonField + "' не заполнено.");
+        Assertions.assertNotEquals(unexpected, getJsonPath(response, jsonField), "Поле '" + jsonField + "' не заполнено.");
     }
 }

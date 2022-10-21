@@ -40,6 +40,15 @@
 
 
     <dependencies>
+<!--        Если необходимо подключить запуск Cucumber тестов через maven clean test, то раскомментировать следующую зависимость-->
+
+<!--        <dependency>-->
+<!--            <groupId>org.junit.vintage</groupId>-->
+<!--            <artifactId>junit-vintage-engine</artifactId>-->
+<!--            <version>${junit.jupiter.version}</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -74,11 +83,6 @@
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-selenide</artifactId>
-            <version>${allure.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
             <artifactId>allure-rest-assured</artifactId>
             <version>${allure.version}</version>
         </dependency>
@@ -92,11 +96,6 @@
             <artifactId>allure-junit5</artifactId>
             <version>${allureJunit5.version}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>${selenide.version}</version>
         </dependency>
         <dependency>
             <groupId>org.aeonbits.owner</groupId>

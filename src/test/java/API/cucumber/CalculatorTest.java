@@ -1,4 +1,4 @@
-package UI.cucumber;
+package API.cucumber;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
